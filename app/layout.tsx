@@ -21,12 +21,12 @@ const fontMono = Geist_Mono({
 })
 
 export const metadata: Metadata = {
-  title: "Mohammad Salah — Full Stack Developer",
+  title: "sartawi.dev",
   description:
     "Personal site of Mohammad Salah (Mo), a 15-year-old Full Stack Developer based in Ras Al Khaimah, UAE.",
   icons: { icon: "/vercel.ico" },
   openGraph: {
-    title: "Mohammad Salah — Full Stack Developer",
+    title: "sartawi.dev",
     description:
       "Personal site of Mohammad Salah (Mo), a 15-year-old Full Stack Developer based in Ras Al Khaimah, UAE.",
     type: "website",
