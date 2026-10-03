@@ -5,6 +5,7 @@ import { ThemeProvider } from "@/components/theme-provider"
 import { cn } from "@/lib/utils";
 import { TooltipProvider } from "@/components/ui/tooltip"
 import { AudioPlayer } from "@/components/ui/audio-player"
+import { Analytics } from "@vercel/analytics/next"
 import ThemeToggle from "@/components/theme-toggle"
 
 const inter = Inter({subsets:['latin'],variable:'--font-sans'})
@@ -35,6 +36,7 @@ export default function RootLayout({
             <ThemeToggle />
           </div>
         </ThemeProvider>
+        <Analytics />
       </body>
     </html>
   )
