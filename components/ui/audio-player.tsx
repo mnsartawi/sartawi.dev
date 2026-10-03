@@ -160,7 +160,7 @@ export function AudioPlayer() {
 
   useEffect(() => {
     const audio = new Audio()
-    audio.preload = "auto"
+    audio.preload = "metadata"
     audioRef.current = audio
 
     const advance = () => {

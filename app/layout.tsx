@@ -1,10 +1,15 @@
 import { Geist, Geist_Mono, Inter } from "next/font/google"
+import type { Metadata } from "next"
 
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
 import { cn } from "@/lib/utils";
 import { TooltipProvider } from "@/components/ui/tooltip"
-import { AudioPlayer } from "@/components/ui/audio-player"
+import dynamic from "next/dynamic"
+
+const AudioPlayer = dynamic(() =>
+  import("@/components/ui/audio-player").then((m) => m.AudioPlayer),
+)
 import { Analytics } from "@vercel/analytics/next"
 import ThemeToggle from "@/components/theme-toggle"
 
@@ -14,6 +19,20 @@ const fontMono = Geist_Mono({
   subsets: ["latin"],
   variable: "--font-mono",
 })
+
+export const metadata: Metadata = {
+  title: "Mohammad Salah — Full Stack Developer",
+  description:
+    "Personal site of Mohammad Salah (Mo), a 15-year-old Full Stack Developer based in Ras Al Khaimah, UAE.",
+  icons: { icon: "/vercel.ico" },
+  openGraph: {
+    title: "Mohammad Salah — Full Stack Developer",
+    description:
+      "Personal site of Mohammad Salah (Mo), a 15-year-old Full Stack Developer based in Ras Al Khaimah, UAE.",
+    type: "website",
+    url: "https://sartawi.dev",
+  },
+}
 
 export default function RootLayout({
   children,
