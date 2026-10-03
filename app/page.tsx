@@ -2,6 +2,7 @@
 
 import { AnimatePresence, motion, type Variants } from "framer-motion"
 import { Karla } from "next/font/google"
+import Image from "next/image"
 import { useEffect, useState } from "react"
 import { Avatar } from "@/components/ui/avatar"
 import {
@@ -228,31 +229,34 @@ function ProjectLogo({
 }) {
   if (typeof logo === "string") {
     return (
-      <Avatar.Image
+      <Image
         src={logo}
         alt={`${name} logo`}
         draggable={false}
-        fit="contain"
-        className={logoClassName}
+        fill
+        sizes="32px"
+        className={`object-contain ${logoClassName ?? ""}`}
       />
     )
   }
   if ("light" in logo) {
     return (
       <>
-        <Avatar.Image
+        <Image
           src={logo.light}
           alt={`${name} logo`}
           draggable={false}
-          fit="contain"
-          className={`block dark:hidden ${logoClassName ?? ""}`}
+          fill
+          sizes="32px"
+          className={`object-contain block dark:hidden ${logoClassName ?? ""}`}
         />
-        <Avatar.Image
+        <Image
           src={logo.dark}
           alt=""
           draggable={false}
-          fit="contain"
-          className={`hidden dark:block ${logoClassName ?? ""}`}
+          fill
+          sizes="32px"
+          className={`object-contain hidden dark:block ${logoClassName ?? ""}`}
         />
       </>
     )
@@ -350,7 +354,7 @@ export default function Page() {
         <div className="mb-6 flex items-center justify-between gap-3">
           <div className="flex items-center gap-3">
             <Avatar size="pfp" className="h-6 w-6 select-none">
-              <Avatar.Image src="/vercel.ico" draggable={false} />
+              <Image src="/vercel.ico" alt="" draggable={false} fill sizes="24px" className="object-contain" />
             </Avatar>
             <h1 className="text-[15px] font-semibold select-none">
               Mohammad Salah
@@ -514,19 +518,21 @@ export default function Page() {
                 className="select-none"
                 style={{ backgroundColor: "var(--card)" }}
               >
-                <Avatar.Image
+                <Image
                   src="/clak-light.png"
                   alt="clak logo"
                   draggable={false}
-                  fit="contain"
-                  className="block scale-110 dark:hidden"
+                  fill
+                  sizes="24px"
+                  className="object-contain block scale-110 dark:hidden"
                 />
-                <Avatar.Image
+                <Image
                   src="/clak-dark.png"
                   alt=""
                   draggable={false}
-                  fit="contain"
-                  className="hidden scale-110 dark:block"
+                  fill
+                  sizes="24px"
+                  className="object-contain hidden scale-110 dark:block"
                 />
               </Avatar>
             </span>{" "}
@@ -559,12 +565,13 @@ export default function Page() {
                 className="select-none"
                 style={{ backgroundColor: "var(--card)" }}
               >
-                <Avatar.Image
+                <Image
                   src="/38-0.png"
                   alt="38-0 logo"
                   draggable={false}
-                  fit="contain"
-                  className="scale-90"
+                  fill
+                  sizes="24px"
+                  className="object-contain scale-90"
                 />
               </Avatar>
             </span>{" "}
