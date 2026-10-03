@@ -2,7 +2,10 @@ const CACHE_NAME = "quran-audio-v1"
 const MAX_ENTRIES = 15
 
 
-export async function resolveAudioUrl(url: string): Promise<string> {
+export async function resolveAudioUrl(
+  url: string,
+  store = true,
+): Promise<string> {
   try {
     if (typeof caches === "undefined") return url
     const cache = await caches.open(CACHE_NAME)
@@ -10,6 +13,7 @@ export async function resolveAudioUrl(url: string): Promise<string> {
     if (hit) {
       return URL.createObjectURL(await hit.blob())
     }
+    if (!store) return url
     fetch(url)
       .then(async (response) => {
         if (!response.ok) return

@@ -1,31 +1,29 @@
 # sartawi.dev
 
-Personal site of Mohammad Salah (Mo) — 15-year-old Full Stack Developer
-based in Ras Al Khaimah, UAE. Minimal, warm-cream design with dark mode.
+> Personal site of Mohammad Salah (Mo), a 15-year-old Full Stack Developer based in Ras Al Khaimah, UAE.
 
 ## About
 
-- Full Stack Developer focused on TypeScript, Next.js, and Go
-- Contact: me@sartawi.dev
+- [Mohammad Salah](https://sartawi.dev): Full Stack Developer focused on TypeScript, Next.js, and Go.
+- Contact: [me@sartawi.dev](mailto:me@sartawi.dev)
 
 ## Projects
 
-- untap — https://github.com/mnsartawi/untap
-- clak — mechanical keyboard sounds emulator app (Tauri) — https://github.com/mnsartawi/clak
-- cdn — https://cdn.sartawi.dev
-- quranbuddy — https://qb.sartawi.dev
-- 38-0 — Discord bot for the RFL community, based on the 38-0 Premier League game
+- [untap](https://github.com/mnsartawi/untap): personal project by Mohammad Salah.
+- [clak](https://github.com/mnsartawi/clak): mechanical keyboard sounds emulator app built with Tauri.
+- [cdn](https://cdn.sartawi.dev): personal asset CDN.
+- [quranbuddy](https://qb.sartawi.dev): Quran companion app.
+- [38-0](http://discord.gg/realsports): Discord bot for the RFL community, based on the 38-0 Premier League game.
 
 ## Elsewhere
 
-- GitHub: https://github.com/mnsartawi
-- Instagram: https://instagram.com/v7xmhd
-- TikTok: https://www.tiktok.com/@m.s7v
-- Discord: https://discord.com/users/718185533460840450
+- [GitHub](https://github.com/mnsartawi): code and open-source projects.
+- [Instagram](https://instagram.com/v7xmhd): personal profile.
+- [TikTok](https://www.tiktok.com/@m.s7v): short videos.
+- [Discord](https://discord.com/users/718185533460840450): direct messages.
 
 ## Site
 
-- Built with Next.js, Tailwind CSS, shadcn/ui, Framer Motion
-- Features: theme toggle (light/dark/system), Quran audio player with five
-  reciters, live coding-activity presence, GitHub contributions graph
-- Source: https://github.com/mnsartawi/sartawi.dev
+- Built with [Next.js](https://nextjs.org), [Tailwind CSS](https://tailwindcss.com), [shadcn/ui](https://ui.shadcn.com), and [Framer Motion](https://motion.dev).
+- Features a theme toggle, a Quran audio player, live coding-activity presence, and a GitHub contributions graph.
+- Source code: [sartawi.dev on GitHub](https://github.com/mnsartawi/sartawi.dev).

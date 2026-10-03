@@ -140,6 +140,7 @@ export function AudioPlayer() {
   const playingRef = useRef(playing)
   const resolveIdRef = useRef(0)
   const blobUrlRef = useRef<string | null>(null)
+  const userGestureRef = useRef(false)
 
   trackRef.current = track
   playingRef.current = playing
@@ -246,8 +247,10 @@ export function AudioPlayer() {
     }
     lastUrlRef.current = url
     const id = ++resolveIdRef.current
+    const store = userGestureRef.current
+    userGestureRef.current = false
     setBuffering(true)
-    resolveAudioUrl(url).then((src) => {
+    resolveAudioUrl(url, store).then((src) => {
       if (id !== resolveIdRef.current) return
       const a = audioRef.current
       if (!a) return
@@ -266,15 +269,18 @@ export function AudioPlayer() {
 
   const toggle = () => {
     disarmAutoplay()
+    userGestureRef.current = !playingRef.current
     setPlaying((p) => !p)
   }
 
   const next = () => {
+    userGestureRef.current = true
     const t = trackRef.current
     setTrack({ ri: t.ri, si: randomSurahIndex(t.si) })
   }
 
   const prev = () => {
+    userGestureRef.current = true
     const t = trackRef.current
     setTrack({
       ri: t.ri,
