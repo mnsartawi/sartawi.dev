@@ -1,0 +1,31 @@
+# sartawi.dev
+
+Personal site of Mohammad Salah (Mo) — 15-year-old Full Stack Developer
+based in Ras Al Khaimah, UAE. Minimal, warm-cream design with dark mode.
+
+## About
+
+- Full Stack Developer focused on TypeScript, Next.js, and Go
+- Contact: me@sartawi.dev
+
+## Projects
+
+- untap — https://github.com/mnsartawi/untap
+- clak — mechanical keyboard sounds emulator app (Tauri) — https://github.com/mnsartawi/clak
+- cdn — https://cdn.sartawi.dev
+- quranbuddy — https://qb.sartawi.dev
+- 38-0 — Discord bot for the RFL community, based on the 38-0 Premier League game
+
+## Elsewhere
+
+- GitHub: https://github.com/mnsartawi
+- Instagram: https://instagram.com/v7xmhd
+- TikTok: https://www.tiktok.com/@m.s7v
+- Discord: https://discord.com/users/718185533460840450
+
+## Site
+
+- Built with Next.js, Tailwind CSS, shadcn/ui, Framer Motion
+- Features: theme toggle (light/dark/system), Quran audio player with five
+  reciters, live coding-activity presence, GitHub contributions graph
+- Source: https://github.com/mnsartawi/sartawi.dev
