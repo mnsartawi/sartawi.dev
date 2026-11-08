@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import { SiGithub } from "react-icons/si"
 import { Skeleton } from "@/components/ui/skeleton"
 
@@ -51,6 +51,7 @@ export function ContributionsGraph({ username }: { username: string }) {
   const [days, setDays] = useState<ContributionDay[] | null>(null)
   const [failed, setFailed] = useState(false)
   const [repoByDate, setRepoByDate] = useState<Record<string, RepoCount[]>>({})
+  const graphRef = useRef<HTMLDivElement>(null)
   const [tip, setTip] = useState<{
     x: number
     y: number
@@ -60,13 +61,32 @@ export function ContributionsGraph({ username }: { username: string }) {
 
   useEffect(() => {
     let cancelled = false
-    fetch(`https://github-contributions-api.jogruber.de/v4/${username}?y=last`)
+    fetch(`https://github-contributions-api.jogruber.de/v4/${username}?y=last`, {
+      cache: "no-store",
+    })
       .then((response) => {
         if (!response.ok) throw new Error(`HTTP ${response.status}`)
         return response.json()
       })
       .then((data: { contributions: ContributionDay[] }) => {
-        if (!cancelled) setDays(data.contributions)
+        if (cancelled) return
+        const now = new Date()
+        const today = [
+          now.getFullYear(),
+          String(now.getMonth() + 1).padStart(2, "0"),
+          String(now.getDate()).padStart(2, "0"),
+        ].join("-")
+        const contributionsByDate = new Map(
+          data.contributions.map((day) => [day.date, day]),
+        )
+        if (!contributionsByDate.has(today)) {
+          contributionsByDate.set(today, { date: today, count: 0, level: 0 })
+        }
+        setDays(
+          Array.from(contributionsByDate.values()).sort((a, b) =>
+            a.date.localeCompare(b.date),
+          ),
+        )
       })
       .catch(() => {
         if (!cancelled) setFailed(true)
@@ -75,6 +95,12 @@ export function ContributionsGraph({ username }: { username: string }) {
       cancelled = true
     }
   }, [username])
+
+  useEffect(() => {
+    if (days) {
+      graphRef.current?.scrollTo({ left: graphRef.current.scrollWidth })
+    }
+  }, [days])
 
   useEffect(() => {
     let cancelled = false
@@ -144,7 +170,11 @@ export function ContributionsGraph({ username }: { username: string }) {
 
   return (
     <div>
-      <div className="overflow-x-auto pb-1" onMouseLeave={() => setTip(null)}>
+      <div
+        ref={graphRef}
+        className="overflow-x-auto pb-1"
+        onMouseLeave={() => setTip(null)}
+      >
         <div className="grid w-max grid-flow-col grid-rows-7 gap-0.75">
           {Array.from({ length: leadingBlanks }).map((_, i) => (
             <span key={`blank-${i}`} className="size-2.5" aria-hidden />

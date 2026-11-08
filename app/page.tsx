@@ -16,7 +16,15 @@ import {
   type HoverPreviewContent,
 } from "@/components/ui/hover-preview"
 import { UploadIcon, Mail, type LucideIcon } from "lucide-react"
-import { SiTypescript, SiNextdotjs, SiGo, SiDiscord, SiGithub, SiInstagram, SiTiktok } from "react-icons/si"
+import {
+  SiTypescript,
+  SiNextdotjs,
+  SiGo,
+  SiDiscord,
+  SiGithub,
+  SiInstagram,
+  SiTiktok,
+} from "react-icons/si"
 import type { IconType } from "react-icons"
 import { ContributionsGraph } from "@/components/ui/contributions"
 import { getDisplayActivity, useLanyard } from "@/lib/lanyard"
@@ -248,7 +256,7 @@ function ProjectLogo({
           draggable={false}
           fill
           sizes="32px"
-          className={`object-contain block dark:hidden ${logoClassName ?? ""}`}
+          className={`block object-contain dark:hidden ${logoClassName ?? ""}`}
         />
         <Image
           src={logo.dark}
@@ -256,7 +264,7 @@ function ProjectLogo({
           draggable={false}
           fill
           sizes="32px"
-          className={`object-contain hidden dark:block ${logoClassName ?? ""}`}
+          className={`hidden object-contain dark:block ${logoClassName ?? ""}`}
         />
       </>
     )
@@ -321,11 +329,10 @@ export default function Page() {
       href: "https://github.com/mnsartawi/clak",
     },
     {
-      title: "cdn",
-      name: "cdn",
-      logo: UploadIcon,
-      logoClassName: "w-4 h-4 mx-0.5 mt-0.5",
-      href: "https://cdn.sartawi.dev/index.html",
+      title: "tahoe",
+      name: "tahoe",
+      logo: "/tahoe.png",
+      href: "https://tahoe.sartawi.dev",
     },
     {
       title: "quranbuddy",
@@ -354,7 +361,14 @@ export default function Page() {
         <div className="mb-6 flex items-center justify-between gap-3">
           <div className="flex items-center gap-3">
             <Avatar size="pfp" className="h-6 w-6 select-none">
-              <Image src="/vercel.ico" alt="" draggable={false} fill sizes="24px" className="object-contain" />
+              <Image
+                src="/vercel.ico"
+                alt=""
+                draggable={false}
+                fill
+                sizes="24px"
+                className="object-contain"
+              />
             </Avatar>
             <h1 className="text-[15px] font-semibold select-none">
               Mohammad Salah
@@ -524,7 +538,7 @@ export default function Page() {
                   draggable={false}
                   fill
                   sizes="24px"
-                  className="object-contain block scale-110 dark:hidden"
+                  className="block scale-110 object-contain dark:hidden"
                 />
                 <Image
                   src="/clak-dark.png"
@@ -532,13 +546,17 @@ export default function Page() {
                   draggable={false}
                   fill
                   sizes="24px"
-                  className="object-contain hidden scale-110 dark:block"
+                  className="hidden scale-110 object-contain dark:block"
                 />
               </Avatar>
             </span>{" "}
             <Tooltip>
               <TooltipTrigger
-                render={<AnimatedLink href="#">clak</AnimatedLink>}
+                render={
+                  <AnimatedLink href="https://clak.sartawi.dev">
+                    clak
+                  </AnimatedLink>
+                }
               />
               <TooltipContent
                 icon={{ light: "/clak-dark.png", dark: "/clak-light.png" }}
@@ -566,26 +584,42 @@ export default function Page() {
                 style={{ backgroundColor: "var(--card)" }}
               >
                 <Image
-                  src="/38-0.png"
-                  alt="38-0 logo"
+                  src="/pik-dark.png"
+                  alt="pik logo"
                   draggable={false}
                   fill
                   sizes="24px"
-                  className="object-contain scale-90"
+                  className="scale-90 object-contain dark:hidden"
+                />
+                <Image
+                  src="/pik.png"
+                  alt=""
+                  draggable={false}
+                  fill
+                  sizes="24px"
+                  className="hidden scale-120 object-contain dark:block"
                 />
               </Avatar>
             </span>{" "}
             <Tooltip>
               <TooltipTrigger
-                render={<AnimatedLink href="#">38-0</AnimatedLink>}
+                render={
+                  <AnimatedLink href="https://pik.sartawi.dev">
+                    pik
+                  </AnimatedLink>
+                }
               />
-              <TooltipContent icon="/38-0.png" iconClassName="size-5">
-                <span className="ml-1.5">
-                  <span className="mr-1 inline-flex items-center gap-1 align-middle text-[0.85em]">
-                    <SiDiscord className="size-4 text-[#5865F2]" />
-                  </span>
-                  Discord bot for the RFL community, based on the 38-0 Premier
-                  League game
+              <TooltipContent
+                icon={{ light: "/pik.png", dark: "/pik-dark.png" }}
+                iconClassName="size-8 translate-x-1 dark:size-6.5"
+                className="max-w-md whitespace-nowrap"
+              >
+                <span>
+                  website built with{" "}
+                  <span className="inline-flex items-center gap-1 align-middle text-[0.85em]">
+                    <SiNextdotjs className="size-4" />
+                  </span>{" "}
+                  Next.js 16 to help you pick between two things.
                 </span>
               </TooltipContent>
             </Tooltip>
