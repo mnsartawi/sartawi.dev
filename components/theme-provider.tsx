@@ -2,6 +2,7 @@
 
 import * as React from "react"
 import { ThemeProvider as NextThemesProvider, useTheme } from "next-themes"
+import { getNextTheme, setThemeWithTransition } from "@/lib/theme"
 
 function ThemeProvider({
   children,
@@ -55,10 +56,7 @@ function ThemeHotkey() {
         return
       }
 
-      const order = ["light", "dark", "system"] as const
-      const current: (typeof order)[number] =
-        theme === "dark" || theme === "system" ? theme : "light"
-      setTheme(order[(order.indexOf(current) + 1) % order.length])
+      setThemeWithTransition(setTheme, getNextTheme(theme))
     }
 
     window.addEventListener("keydown", onKeyDown)

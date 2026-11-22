@@ -1,6 +1,7 @@
 "use client"
 
 import { useEffect, useRef, useState } from "react"
+import { AnimatePresence, motion } from "framer-motion"
 import { SiGithub } from "react-icons/si"
 import { Skeleton } from "@/components/ui/skeleton"
 
@@ -214,21 +215,28 @@ export function ContributionsGraph({ username }: { username: string }) {
           {total.toLocaleString()} contributions in the last year
         </p>
       </div>
-      {tip && (
-        <div
-          aria-hidden
-          style={{ left: tip.x, top: tip.y - 8 }}
-          className="pointer-events-none fixed z-100 flex -translate-x-1/2 -translate-y-full flex-col rounded-md bg-foreground px-2.5 py-1 text-xs whitespace-nowrap text-background shadow-lg"
-        >
-          <span>{tip.title}</span>
-          {tip.sub && (
-            <span className="flex items-center gap-1 opacity-70">
-              <SiGithub className="size-3 shrink-0" aria-hidden />
-              {tip.sub}
-            </span>
-          )}
-        </div>
-      )}
+      <AnimatePresence>
+        {tip && (
+          <motion.div
+            key="contributions-tooltip"
+            aria-hidden
+            initial={false}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.15, ease: "easeOut" }}
+            style={{ left: tip.x, top: tip.y - 8 }}
+            className="pointer-events-none fixed z-100 flex -translate-x-1/2 -translate-y-full flex-col rounded-md bg-foreground px-2.5 py-1 text-xs whitespace-nowrap text-background shadow-lg"
+          >
+            <span>{tip.title}</span>
+            {tip.sub && (
+              <span className="flex items-center gap-1 opacity-70">
+                <SiGithub className="size-3 shrink-0" aria-hidden />
+                {tip.sub}
+              </span>
+            )}
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   )
 }

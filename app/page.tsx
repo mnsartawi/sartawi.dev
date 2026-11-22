@@ -323,10 +323,11 @@ export default function Page() {
       href: "https://github.com/mnsartawi/untap",
     },
     {
-      title: "clak",
-      name: "clak",
-      logo: { light: "/clak-light.png", dark: "/clak-dark.png" },
-      href: "https://github.com/mnsartawi/clak",
+      title: "syn",
+      name: "syn",
+      logo: { light: "/syn-dark.png", dark: "/syn.png" },
+      logoClassName: "dark:scale-[1.5]",
+      href: "https://github.com/mnsartawi/syn",
     },
     {
       title: "tahoe",
@@ -533,47 +534,37 @@ export default function Page() {
                 style={{ backgroundColor: "var(--card)" }}
               >
                 <Image
-                  src="/clak-light.png"
-                  alt="clak logo"
+                  src="/syn-dark.png"
+                  alt="syn logo"
                   draggable={false}
                   fill
                   sizes="24px"
                   className="block scale-110 object-contain dark:hidden"
                 />
                 <Image
-                  src="/clak-dark.png"
+                  src="/syn.png"
                   alt=""
                   draggable={false}
                   fill
                   sizes="24px"
-                  className="hidden scale-110 object-contain dark:block"
+                  className="hidden scale-[1.9] object-contain dark:block"
                 />
               </Avatar>
             </span>{" "}
             <Tooltip>
               <TooltipTrigger
                 render={
-                  <AnimatedLink href="https://clak.sartawi.dev">
-                    clak
+                  <AnimatedLink href="https://github.com/mnsartawi/syn">
+                    syn
                   </AnimatedLink>
                 }
               />
               <TooltipContent
-                icon={{ light: "/clak-dark.png", dark: "/clak-light.png" }}
+                icon={{ light: "/syn.png", dark: "/syn-dark.png" }}
                 iconClassName="size-6"
                 className="max-w-md whitespace-nowrap"
               >
-                <span>
-                  Mechanical keyboard sounds emulator{" "}
-                  <img
-                    src="/tauri.png"
-                    alt=""
-                    aria-hidden
-                    draggable={false}
-                    className="inline-block h-[1.1em] w-[1.1em] object-contain align-[-0.15em]"
-                  />{" "}
-                  tauri app
-                </span>
+                <span>a start page built around you</span>
               </TooltipContent>
             </Tooltip>{" "}
             and{" "}
@@ -584,42 +575,38 @@ export default function Page() {
                 style={{ backgroundColor: "var(--card)" }}
               >
                 <Image
-                  src="/pik-dark.png"
-                  alt="pik logo"
+                  src="/WinSpotlight.png"
+                  alt="WinSpotlight logo"
                   draggable={false}
                   fill
                   sizes="24px"
-                  className="scale-90 object-contain dark:hidden"
-                />
-                <Image
-                  src="/pik.png"
-                  alt=""
-                  draggable={false}
-                  fill
-                  sizes="24px"
-                  className="hidden scale-120 object-contain dark:block"
+                  className="scale-110 object-contain"
                 />
               </Avatar>
             </span>{" "}
             <Tooltip>
               <TooltipTrigger
                 render={
-                  <AnimatedLink href="https://pik.sartawi.dev">
-                    pik
+                  <AnimatedLink href="https://github.com/mnsartawi/WinSpotlight">
+                    WinSpotlight
                   </AnimatedLink>
                 }
               />
               <TooltipContent
-                icon={{ light: "/pik.png", dark: "/pik-dark.png" }}
-                iconClassName="size-8 translate-x-1 dark:size-6.5"
+                icon="/WinSpotlight.png"
+                iconClassName="size-6"
                 className="max-w-md whitespace-nowrap"
               >
                 <span>
-                  website built with{" "}
-                  <span className="inline-flex items-center gap-1 align-middle text-[0.85em]">
-                    <SiNextdotjs className="size-4" />
-                  </span>{" "}
-                  Next.js 16 to help you pick between two things.
+                  Spotlight-style search for Windows, built with{" "}
+                  <img
+                    src="/tauri.png"
+                    alt=""
+                    aria-hidden
+                    draggable={false}
+                    className="inline-block h-[1.1em] w-[1.1em] object-contain align-[-0.15em]"
+                  />{" "}
+                  Tauri
                 </span>
               </TooltipContent>
             </Tooltip>

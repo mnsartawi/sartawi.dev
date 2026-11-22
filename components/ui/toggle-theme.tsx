@@ -5,7 +5,11 @@ import { MonitorCogIcon, MoonStarIcon, SunIcon } from "lucide-react"
 import { motion } from "framer-motion"
 import { useTheme } from "next-themes"
 import { cn } from "@/lib/utils"
-import { getThemeValue, type ThemeValue } from "@/lib/theme"
+import {
+  getThemeValue,
+  setThemeWithTransition,
+  type ThemeValue,
+} from "@/lib/theme"
 
 const THEME_OPTIONS = [
   {
@@ -61,7 +65,8 @@ export function ToggleTheme() {
           aria-checked={activeTheme === option.value}
           aria-label={`Switch to ${option.value} theme`}
           onClick={() => {
-            setTheme(option.value)
+            if (option.value === activeTheme) return
+            setThemeWithTransition(setTheme, option.value)
           }}
         >
           {activeTheme === option.value && (
